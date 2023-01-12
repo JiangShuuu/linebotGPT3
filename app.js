@@ -42,7 +42,14 @@ async function handleEvent(event) {
   }
 
   if (event.message.text === '抽') {
-    return client.replyMessage(event.replyToken, { type:'text', text:'嗨嗨好哎嗨嗨嗨' });
+    
+    const images = {
+        type: 'image',
+        originalContentUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
+        previewImageUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+    }
+
+    return client.replyMessage(event.replyToken, images);
   }
 
   // create a echoing text message
@@ -54,14 +61,6 @@ async function handleEvent(event) {
 
   // create a echoing text message
   const echo = { type: 'text', text: completion.data.choices[0].text.trim() };
-
-//   client.replyMessage(event.replyToken, 
-//     {
-//         type: 'image',
-//         originalContentUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-//         previewImageUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
-//     }
-// )
 
   // use reply API
   return client.replyMessage(event.replyToken, echo);
