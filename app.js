@@ -42,11 +42,11 @@ async function handleEvent(event) {
   }
 
   if (event.message.text === '抽') {
-    
+
     const images = {
         type: 'image',
-        originalContentUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-        previewImageUrl: 'https://images.unsplash.com/photo-1673495249492-52c9c8122872?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80'
+        originalContentUrl: 'https://upload.cc/i1/2022/10/28/TWcEhD.jpeg',
+        previewImageUrl: 'https://upload.cc/i1/2022/10/28/TWcEhD.jpeg'
     }
 
     return client.replyMessage(event.replyToken, images);
