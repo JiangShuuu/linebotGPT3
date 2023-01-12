@@ -52,6 +52,18 @@ async function handleEvent(event) {
     return client.replyMessage(event.replyToken, images);
   }
 
+  if (event.message.text === '地址') {
+    return client.replyMessage(event.replyToken, 
+        {
+            type: 'location',
+            title: '出沒地',
+            address: "251新北市淡水區沙崙路333號",
+            latitude: 25.1878538,
+            longitude: 121.4276130
+        }
+    )
+  }
+
   // create a echoing text message
   const completion = await openai.createCompletion({
     model: "text-davinci-003",
