@@ -4,6 +4,13 @@ const express = require('express')
 const line = require('@line/bot-sdk')
 const { Configuration, OpenAIApi } = require("openai");
 
+const images = [
+  'https://upload.cc/i1/2023/01/12/oJWBuE.jpg','https://upload.cc/i1/2023/01/12/keSWRH.jpg','https://upload.cc/i1/2023/01/12/15Ydjy.jpg'
+  ,'https://upload.cc/i1/2023/01/12/GSxlHA.jpg','https://upload.cc/i1/2023/01/12/8mEitn.jpg','https://upload.cc/i1/2023/01/12/gpfeEM.jpg'
+  ,'https://upload.cc/i1/2023/01/12/18VHoq.jpg','https://upload.cc/i1/2023/01/12/cgpzdj.jpg','https://upload.cc/i1/2023/01/12/sn7WkS.jpg'
+  ,'https://upload.cc/i1/2023/01/12/BxkKd6.jpg'
+  ]
+
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -42,14 +49,15 @@ async function handleEvent(event) {
   }
 
   if (event.message.text === '抽') {
+    const random = Math.floor(Math.random()*10);
 
-    const images = {
+    const image = {
         type: 'image',
-        originalContentUrl: 'https://upload.cc/i1/2022/10/28/TWcEhD.jpeg',
-        previewImageUrl: 'https://upload.cc/i1/2022/10/28/TWcEhD.jpeg'
+        originalContentUrl: images[random],
+        previewImageUrl: images[random]
     }
 
-    return client.replyMessage(event.replyToken, images);
+    return client.replyMessage(event.replyToken, image);
   }
 
   if (event.message.text === '地址') {
