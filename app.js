@@ -41,7 +41,7 @@ async function handleEvent(event) {
     return Promise.resolve(null);
   }
 
-  if (event.message === '抽') {
+  if (event.message.text === '抽') {
     return client.replyMessage(event.replyToken, { type:'text', text:'嗨嗨好哎嗨嗨嗨' });
   }
 
